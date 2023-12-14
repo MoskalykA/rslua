@@ -180,7 +180,7 @@ impl std::ops::Rem for Const {
             |a, b| success(Const::Int(a % b)),
             |a, b| success(Const::Float(a as FloatType % b)),
             |a, b| success(Const::Float(a % b as FloatType)),
-            |a, b| success(Const::Float(a % b))
+            |a, b| success(Const::Float(a % b)),
         )
     }
 }

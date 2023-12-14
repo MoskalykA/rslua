@@ -21,7 +21,6 @@ impl Error for SyntaxError {
 type ParseResult<T> = Result<T, SyntaxError>;
 
 impl Parser {
-
     pub fn run(&mut self, tokens: Vec<Token>) -> ParseResult<Block> {
         self.reset();
         self.tokens = tokens;
@@ -414,7 +413,7 @@ impl Parser {
 
     // exprlist -> expr { ',' expr }
     fn exprlist(&mut self) -> ParseResult<ExprList> {
-        let mut exprs  = ExprList::default();
+        let mut exprs = ExprList::default();
         self.skip_comment();
         exprs.exprs.push(self.expr()?);
         while let Some(comma) = self.test_next(TokenType::Comma) {
@@ -699,11 +698,14 @@ impl Parser {
     // if reach a block end
     fn is_block_end(&self) -> bool {
         let token = self.current_token();
-        matches!(token.t, TokenType::Else
-            | TokenType::ElseIf
-            | TokenType::End
-            | TokenType::Until
-            | TokenType::Eos)
+        matches!(
+            token.t,
+            TokenType::Else
+                | TokenType::ElseIf
+                | TokenType::End
+                | TokenType::Until
+                | TokenType::Eos
+        )
     }
 
     fn check_match(&mut self, end: TokenType, start: TokenType, line: usize) -> ParseResult<Token> {

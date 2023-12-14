@@ -186,7 +186,6 @@ mod lexer_tests {
                     },
                     comments: Vec::new(),
                 },
-                
                 Token {
                     t: TokenType::Eos,
                     value: TokenValue::None,

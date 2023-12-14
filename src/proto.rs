@@ -37,7 +37,6 @@ impl Default for Proto {
 }
 
 impl Proto {
-
     pub fn open(&mut self) {}
 
     pub fn close(&mut self) {
@@ -170,7 +169,10 @@ impl Proto {
     }
 
     pub fn get_local_var(&self, name: &str) -> Option<u32> {
-        self.local_vars.iter().position(|var| var.name == name).map(|i| i as u32)
+        self.local_vars
+            .iter()
+            .position(|var| var.name == name)
+            .map(|i| i as u32)
     }
 
     pub fn add_const(&mut self, k: Const) -> u32 {

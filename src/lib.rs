@@ -5,7 +5,7 @@ pub mod consts;
 pub mod lexer;
 pub mod opcodes;
 pub mod parser;
+pub mod proto;
 pub mod tokens;
 pub mod types;
-pub mod proto;
 pub mod utils;

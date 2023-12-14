@@ -659,9 +659,7 @@ impl<'a> Lexer {
     }
 
     fn starts_with_0x(bytes: &[u8], i: usize) -> bool {
-        bytes.len() > i + 2
-            && bytes[i] == b'0'
-            && (bytes[i + 1] == b'x' || bytes[i + 1] == b'X')
+        bytes.len() > i + 2 && bytes[i] == b'0' && (bytes[i + 1] == b'x' || bytes[i + 1] == b'X')
     }
 
     // get number sign, return (sign, index)

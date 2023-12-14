@@ -302,7 +302,6 @@ impl OpCode {
     pub fn go_if_truthy_by_default(self) -> bool {
         self.is_test()
     }
-
 }
 
 pub struct Instruction(u32);
@@ -310,7 +309,6 @@ pub struct Instruction(u32);
 #[allow(dead_code)]
 #[allow(non_snake_case)]
 impl Instruction {
-
     pub fn get_op(&self) -> OpCode {
         OpCode::from_u32(((self.0) >> POS_OP) & Instruction::mask1(SIZE_OP, 0))
     }
