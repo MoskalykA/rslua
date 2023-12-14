@@ -129,7 +129,7 @@ impl<'a> Lexer {
                     b'~' => self.read_ne_xor(&mut ctx)?,
                     b':' => self.read_colon(&mut ctx)?,
                     b'.' => self.read_attr_concat_dots_numbers(&mut ctx)?,
-                    b'"' | b'\'' => self.read_short_string(&mut ctx)?,
+                    b'"' | b'\'' | b'`' => self.read_short_string(&mut ctx)?,
                     b'[' if self.check_next2(&ctx, '[', '=') => self.read_long_string(&mut ctx)?,
                     _ => self.read_other_tokens(&mut ctx)?,
                 } {
