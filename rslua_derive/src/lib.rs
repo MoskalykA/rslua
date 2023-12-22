@@ -10,7 +10,6 @@ pub fn traceable_macro(input: TokenStream) -> TokenStream {
 
     quote! {
         impl #struct_name {
-            #[cfg(debug_assertions)]
             fn trace_error<T, E: Error>(error: E) -> Result<T, E> {
                 if cfg!(debug_assertions) {
                     panic!("{}", error.what());
